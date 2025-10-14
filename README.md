@@ -105,6 +105,12 @@ Yes, the plugin disables all 15 comment-related Gutenberg blocks, preventing the
 
 Yes, the plugin disables comment endpoints in the WordPress REST API and prevents comment insertion via API requests.
 
+
+### Does this plugin automatically replace the previous "Disable Comments" plugin from WordPress.org?
+
+Yes, this plugin will automatically replace the original open-source [Disable Comments](https://wordpress.org/plugins/disable-comments/) plugin if you overwrite the old plugin folder with this one. This works because both plugins use the same folder name (`disable-comments`) and main PHP file. No reactivation is required after replacing the files—just copy over the new files and the updated plugin will be used immediately.  
+Please note, however, that any options or settings saved by the previous plugin are not removed during this process.
+
 ## Changelog
 
 ### 1.0.0
