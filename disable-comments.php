@@ -81,7 +81,7 @@ function init() {
 	add_filter( 'rest_endpoints', __NAMESPACE__ . '\\filter_rest_endpoints' );
 
 	// Disable inserting comments via REST API.
-	add_filter( 'rest_pre_insert_comment', __NAMESPACE__ . '\\disable_rest_api_comments', 10, 2 );
+	add_filter( 'rest_pre_insert_comment', __NAMESPACE__ . '\\__return_null', 10, 2 );
 
 	// Disable Gutenberg comments blocks.
 	add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\disable_comments_blocks' );
@@ -310,19 +310,6 @@ function filter_rest_endpoints( $endpoints ) {
 }
 
 /**
- * Disable inserting comments via REST API.
- *
- * @since 1.0.0
- *
- * @param array            $prepared_comment The prepared comment data.
- * @param \WP_REST_Request $request          The REST request object.
- * @return null
- */
-function disable_rest_api_comments( $prepared_comment, $request ) {
-	return null;
-}
-
-/**
  * Disable Gutenberg comments blocks.
  * Enqueues JavaScript to unregister all comment-related blocks from the block editor.
  *
@@ -342,4 +329,3 @@ function disable_comments_blocks() {
 
 // Initialize the plugin.
 init();
-

@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<ruleset name="disable-comments">
+  <description>Coding Standards for disable-comments plugin</description>
+
+  <!-- Scan all files in directory -->
+  <file>.</file>
+
+  <!-- Scan only PHP files -->
+  <arg name="extensions" value="php"/>
+
+  <!-- Ignore Composer dependencies -->
+  <exclude-pattern>languages/</exclude-pattern>
+  <exclude-pattern>vendor/</exclude-pattern>
+  <exclude-pattern>tests/</exclude-pattern>
+  <exclude-pattern>.ddev/</exclude-pattern>
+  <exclude-pattern>.git/</exclude-pattern>
+  <exclude-pattern>.github/</exclude-pattern>
+  <exclude-pattern>.wordpress-org/</exclude-pattern>
+  <exclude-pattern>config/</exclude-pattern>
+  <exclude-pattern>node_modules/</exclude-pattern>
+  <exclude-pattern>src/</exclude-pattern>
+  <exclude-pattern>tests/</exclude-pattern>
+  <exclude-pattern>wp-env.json</exclude-pattern>
+
+  <!-- Show colors in console -->
+  <arg value="-colors"/>
+
+  <!-- Show sniff codes in all reports -->
+  <arg value="ns"/>
+
+  <!-- Show progress. -->
+  <arg value="p"/>
+
+  <!-- Set ini. -->
+  <ini name="memory_limit" value="512M"/>
+  <ini name="max_execution_time" value="-1"/>
+
+  <!-- Use WordPress Extra as a base -->
+  <rule ref="WordPress-Extra">
+    <!-- Exclude as we use a custom autoloader. -->
+    <exclude name="WordPress.Files.FileName"/>
+
+    <!-- Exclude as it conflict with @var declaration. -->
+    <exclude name="Squiz.PHP.CommentedOutCode"/>
+
+    <!-- Exclude as we use custom naming for our class. -->
+    <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+
+    <!-- Exclude as we use the short array syntax over the long one. -->
+    <exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
+  </rule>
+  <config name="minimum_supported_wp_version" value="5.0"/>
+
+  <rule ref="PHPCompatibilityWP"/>
+  <config name="testVersion" value="7.4-"/>
+  
+
+  <rule ref="WordPress.Security.ValidatedSanitizedInput">
+    <properties>
+      <property name="customSanitizingFunctions" type="array">
+        <element value="wc_clean"/>
+        <element value="wc_sanitize_tooltip"/>
+        <element value="wc_format_decimal"/>
+        <element value="wc_stock_amount"/>
+        <element value="wc_sanitize_permalink"/>
+        <element value="wc_sanitize_textarea"/>
+      </property>
+    </properties>
+  </rule>
+
+  <rule ref="WordPress.Security.EscapeOutput">
+    <properties>
+      <property name="customEscapingFunctions" type="array">
+        <element value="wc_help_tip"/>
+        <element value="wc_sanitize_tooltip"/>
+        <element value="wc_selected"/>
+        <element value="wc_kses_notice"/>
+        <element value="wc_esc_json"/>
+        <element value="wc_query_string_form_fields"/>
+        <element value="wc_make_phone_clickable"/>
+      </property>
+    </properties>
+  </rule>
+
+  <rule ref="WordPress.WP.I18n">
+    <properties>
+      <property name="text_domain" type="array">
+        <element value="disable-comments"/>
+      </property>
+    </properties>
+  </rule>
+  <rule ref="WordPress.WhiteSpace.ControlStructureSpacing">
+    <properties>
+      <property name="blank_line_check" value="true"/>
+    </properties>
+  </rule>
+</ruleset>
