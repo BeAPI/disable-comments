@@ -12,7 +12,6 @@ This plugin disables all comments functionality in WordPress with no configurati
 - Disables comments on all post types (posts, pages, attachments, custom post types)
 - Closes comments and trackbacks/pingbacks on the front-end
 - Hides existing comments from displaying
-- Automatically cleans up options from other comment disable plugins (one-time operation)
 
 ### Admin Interface
 - Removes Comments menu from admin sidebar
