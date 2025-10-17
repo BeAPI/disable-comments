@@ -21,6 +21,7 @@ composer.lock export-ignore
 
 # CI/CD files
 .github/ export-ignore
+.distignore export-ignore
 
 # Build and development directories
 /build/ export-ignore
