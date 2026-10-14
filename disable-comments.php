@@ -3,7 +3,7 @@
  * Plugin Name: Disable Comments
  * Plugin URI: https://github.com/BeAPI/disable-comments
  * Description: Completely disables comments functionality in WordPress. Zero configuration needed.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Requires at least: 5.0
  * Requires PHP: 7.4
  * Author: BeAPI
@@ -12,7 +12,7 @@
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: disable-comments
  * Domain Path: /languages
- * Update URI: https://github.com/BeAPI/disable-comments/releases/latest
+ * Update URI: false
  *
  * Inspired by:
  * - Disable Comments plugin: https://wordpress.org/plugins/disable-comments/
