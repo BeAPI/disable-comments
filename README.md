@@ -112,6 +112,8 @@ Please note, however, that any options or settings saved by the previous plugin 
 
 ## Changelog
 
+### 1.0.1
+* Set Update URI to false to prevent WordPress.org update notices
 
 ### 1.0.1
 * Fix Update URI to not have updates showing
