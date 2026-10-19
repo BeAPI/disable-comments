@@ -1,6 +1,5 @@
 {
 	"name": "beapi/disable-comments",
-	"version": "1.0.0",
 	"description": "Completely disables comments functionality in WordPress. Zero configuration needed.",
 	"type": "wordpress-plugin",
 	"license": "GPL-2.0-or-later",

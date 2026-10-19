@@ -112,7 +112,11 @@ Please note, however, that any options or settings saved by the previous plugin 
 
 ## Changelog
 
-### 1.0.1
+
+### 1.0.3
+* Remove version field from composer.json
+
+### 1.0.2
 * Set Update URI to false to prevent WordPress.org update notices
 
 ### 1.0.1
