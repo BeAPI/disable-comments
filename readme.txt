@@ -4,7 +4,7 @@ Tags: comments, disable, spam, discussion, gutenberg
 Requires at least: 5.0
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.0.2
+Stable tag: 1.0.4
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -120,6 +120,9 @@ Please note, however, that any options or settings saved by the previous plugin 
 1. No configuration needed - simply activate the plugin
 
 == Changelog ==
+
+= 1.0.4 =
+* Sync plugin Version header and Stable tag (left at 1.0.2 in the 1.0.3 release)
 
 = 1.0.3 =
 * Remove version field from composer.json
