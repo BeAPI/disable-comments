@@ -112,6 +112,8 @@ Please note, however, that any options or settings saved by the previous plugin 
 
 ## Changelog
 
+### 1.0.4
+* Sync plugin Version header and Stable tag (left at 1.0.2 in the 1.0.3 release)
 
 ### 1.0.3
 * Remove version field from composer.json
