@@ -112,6 +112,9 @@ Please note, however, that any options or settings saved by the previous plugin 
 
 ## Changelog
 
+### 1.0.5
+* Fix REST API comment insertion filter: replace the missing `__return_null` callback with a 403 `WP_Error`
+
 ### 1.0.4
 * Sync plugin Version header and Stable tag (left at 1.0.2 in the 1.0.3 release)
 
