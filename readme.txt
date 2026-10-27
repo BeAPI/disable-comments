@@ -4,7 +4,7 @@ Tags: comments, disable, spam, discussion, gutenberg
 Requires at least: 5.0
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -120,6 +120,9 @@ Please note, however, that any options or settings saved by the previous plugin 
 1. No configuration needed - simply activate the plugin
 
 == Changelog ==
+
+= 1.0.5 =
+* Fix REST API comment insertion filter: replace the missing `__return_null` callback with a 403 `WP_Error`
 
 = 1.0.4 =
 * Sync plugin Version header and Stable tag (left at 1.0.2 in the 1.0.3 release)

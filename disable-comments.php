@@ -3,7 +3,7 @@
  * Plugin Name: Disable Comments
  * Plugin URI: https://github.com/BeAPI/disable-comments
  * Description: Completely disables comments functionality in WordPress. Zero configuration needed.
- * Version: 1.0.4
+ * Version: 1.0.5
  * Requires at least: 5.0
  * Requires PHP: 7.4
  * Author: BeAPI
@@ -84,7 +84,7 @@ function init() {
 	add_filter( 'rest_endpoints', __NAMESPACE__ . '\\filter_rest_endpoints' );
 
 	// Disable inserting comments via REST API.
-	add_filter( 'rest_pre_insert_comment', __NAMESPACE__ . '\\__return_null', 10, 2 );
+	add_filter( 'rest_pre_insert_comment', __NAMESPACE__ . '\\reject_rest_comment_insertion' );
 
 	// Disable Gutenberg comments blocks.
 	add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\disable_comments_blocks' );
@@ -313,6 +313,22 @@ function filter_rest_endpoints( $endpoints ) {
 }
 
 /**
+ * Reject comment creation through the REST API.
+ *
+ * @since 1.0.5
+ *
+ * @param array|\WP_Error $prepared_comment The prepared comment data.
+ * @return \WP_Error Error preventing the comment insertion.
+ */
+function reject_rest_comment_insertion( $prepared_comment ) {
+	return new \WP_Error(
+		'rest_comment_disabled',
+		__( 'Comments are disabled.', 'disable-comments' ),
+		array( 'status' => 403 )
+	);
+}
+
+/**
  * Disable Gutenberg comments blocks.
  * Enqueues JavaScript to unregister all comment-related blocks from the block editor.
  *
@@ -325,7 +341,7 @@ function disable_comments_blocks() {
 		'disable-comments-blocks',
 		plugin_dir_url( __FILE__ ) . 'assets/disable-comments-blocks.js',
 		array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' ),
-		'1.0.4',
+		'1.0.5',
 		true
 	);
 }
